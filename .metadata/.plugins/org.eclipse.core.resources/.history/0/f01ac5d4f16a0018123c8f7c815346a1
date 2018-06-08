@@ -1,0 +1,82 @@
+package de.haw_landshut.gheld.ev3.sensor;
+
+import de.haw_landshut.gheld.ev3.behaviour.Behavior;
+import de.haw_landshut.gheld.ev3.common.Reading;
+import lejos.hardware.Button;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.EV3TouchSensor;
+import lejos.robotics.SampleProvider;
+import lejos.utility.Delay;
+
+public class BumperSensor extends SubSensor {
+	
+	private final EV3TouchSensor right;
+	private final EV3TouchSensor left;
+
+
+	public BumperSensor(Behavior[] behaviors) {
+		super(behaviors, Reading.Bumper);
+		
+		this.right = new EV3TouchSensor(SensorPort.S1);
+		this.left = new EV3TouchSensor(SensorPort.S4);
+	}
+	
+	
+	public void run() {
+		final SampleProvider rightProvider = right.getMode("Touch");
+		final SampleProvider leftProvider = left.getMode("Touch");
+		
+		float pressedLeft = 0;
+		float pressedRight = 0;
+		
+		float sampleLeft[] = new float[leftProvider.sampleSize()];
+		float sampleRight[] = new float[rightProvider.sampleSize()];
+		
+		while (true) {
+			Delay.msDelay(10);
+			leftProvider.fetchSample(sampleLeft, 0);
+			rightProvider.fetchSample(sampleRight, 0);
+			
+			pressedLeft = sampleLeft[0];
+			pressedRight = sampleRight[0];
+			
+			if (pressedLeft!= 0 || pressedRight != 0){
+				send(1);
+			} else {
+				send(0);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Sound.beep();
+		// Initialisierung
+		try (EV3TouchSensor sensor1 = new EV3TouchSensor(SensorPort.S1)) {
+			SampleProvider touch1 = sensor1.getMode("Touch");
+
+			// Initialisirung der Messwerte
+			float pressed = 0;
+			float sample[] = new float[touch1.sampleSize()];
+			touch1.fetchSample(sample, 0);
+
+			// Abfrage der Messwerte
+			touch1.fetchSample(sample, 0);
+			// pressed enthält Informationen ueber Zustand des Tastsensors
+			pressed = sample[0];
+			// Warten bis Touchsensor bgedrueckt
+
+			while (pressed != 1) {
+				Delay.msDelay(10);
+				touch1.fetchSample(sample, 0);
+				pressed = sample[0];
+
+			}
+
+			// Sensorzustand in LCD anzeigen
+			LCD.drawInt((int) pressed, 0, 0);
+			Button.waitForAnyPress();
+
+		}
+	}
+
+}

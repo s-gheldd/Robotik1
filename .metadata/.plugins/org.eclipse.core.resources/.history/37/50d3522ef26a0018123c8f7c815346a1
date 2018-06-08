@@ -1,0 +1,12 @@
+package de.haw_landshut.gheld.ev3.behaviour;
+
+import de.haw_landshut.gheld.ev3.arbitrator.Arbitrator;
+import de.haw_landshut.gheld.ev3.common.Reading;
+
+public class BumperHitBackAndTurnRight extends Behavior {
+
+	public BumperHitBackAndTurnRight(Arbitrator arbitrator, int priority) {
+		super(arbitrator, priority, Reading.Bumper);
+	}
+
+}

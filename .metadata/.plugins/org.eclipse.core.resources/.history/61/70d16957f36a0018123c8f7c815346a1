@@ -1,0 +1,27 @@
+package de.haw_landshut.gheld.ev3.behaviour;
+
+import de.haw_landshut.gheld.ev3.arbitrator.Arbitrator;
+import de.haw_landshut.gheld.ev3.common.Reading;
+import de.haw_landshut.gheld.ev3.common.Wish;
+
+public class BumperHitBackAndTurnRight extends Behavior {
+
+	public BumperHitBackAndTurnRight(Arbitrator arbitrator, int priority) {
+		super(arbitrator, priority, Reading.Bumper);
+	}
+
+	@Override
+	public void run() {
+		int rv = getReadingValue();
+		while (true){
+			if (rv == 1) {
+				sendWish(Wish.BACKWARD);
+				sendWish(Wish.STOP);
+				sendWish(Wish.TURNRIGHT);
+				sendWish(Wish.FORWARD);
+			}
+			rv = getReadingValue();
+		}
+	}
+
+}

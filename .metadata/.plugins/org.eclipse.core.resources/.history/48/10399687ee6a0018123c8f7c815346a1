@@ -1,0 +1,19 @@
+package de.haw_landshut.gheld.ev3.sensor;
+
+import de.haw_landshut.gheld.ev3.common.Reading;
+import lejos.hardware.Button;
+
+public class ButtonSensor extends SubSensor {
+	public ButtonSensor(Behavior[] behaviors) {
+		super(behaviors, Reading.Button);
+
+	}
+
+	public void run() {
+		while (true) {
+			int button = Button.waitForAnyPress();
+			send(button);
+		}
+
+	}
+}

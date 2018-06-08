@@ -1,0 +1,5 @@
+package de.haw_landshut.gheld.ev3.behaviour;
+
+public class Go extends Behavior {
+
+}

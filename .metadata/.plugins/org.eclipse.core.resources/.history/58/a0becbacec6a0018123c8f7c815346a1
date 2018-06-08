@@ -1,0 +1,22 @@
+package de.haw_landshut.gheld.ev3.effector;
+
+import de.haw_landshut.gheld.ev3.common.Wish;
+
+public class Chassis extends AbstractEffector{
+
+    final RegulatedMotor motorA = new EV3LargeRegulatedMotor(MotorPort.A);
+    final RegulatedMotor motorD = new EV3LargeRegulatedMotor(MotorPort.D);
+
+    @Override
+    public void accept(Wish command)
+    {
+	if (command == Wish.FORWARD) {
+	    motorA.forward();
+	    motorD.forward();
+	}
+	else if(command == Wish.STOP) {
+	    motorA.stop();
+	    motorD.stop();
+	}
+    }
+}

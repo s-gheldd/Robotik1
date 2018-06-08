@@ -1,0 +1,14 @@
+package de.haw_landshut.gheld.ev3.sensor;
+
+import de.haw_landshut.gheld.ev3.behaviour.Behavior;
+import de.haw_landshut.gheld.ev3.common.Reading;
+
+public class UltrasonicSensor extends SubSensor {
+
+	public UltrasonicSensor(Behavior[] behaviors) {
+		super(behaviors, Reading.Ultrasonic);
+		
+	}
+
+
+}

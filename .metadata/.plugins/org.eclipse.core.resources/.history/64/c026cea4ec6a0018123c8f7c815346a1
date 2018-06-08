@@ -1,0 +1,13 @@
+package de.haw_landshut.gheld.ev3.effector;
+
+import de.haw_landshut.gheld.ev3.common.Wish;
+
+public class Chassis extends AbstractEffector{
+
+	@Override
+	public void accept(Wish command) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

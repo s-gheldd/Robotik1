@@ -1,0 +1,7 @@
+package de.haw_landshut.gheld.ev3.common;
+
+public enum Wish {
+
+	 BACKWARD, TURNRIGHT, FORWARD, STOP, LEDGREEN, LEDOFF, NOTHING
+
+}
