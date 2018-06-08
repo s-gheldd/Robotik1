@@ -23,7 +23,7 @@ public class FollowEdge extends Behavior {
 				Delay.msDelay(900);
 			} else if(rv == 2) {
 				sendWish(Wish.TURNRIGHT);
-				Delay.msDelay(50);
+				Delay.msDelay(100);
 			} else if(rv == 3) {
 				sendWish(Wish.FORWARD);
 				Delay.msDelay(900);

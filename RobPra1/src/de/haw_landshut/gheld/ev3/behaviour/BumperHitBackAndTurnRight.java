@@ -20,11 +20,12 @@ public class BumperHitBackAndTurnRight extends Behavior {
 				Delay.msDelay(2500);
 				sendWish(Wish.STOP);
 				sendWish(Wish.TURNLEFT);
-				Delay.msDelay(800);
+				Delay.msDelay(2000);
 				sendWish(Wish.FORWARD);
 				Delay.msDelay(1000);
 			} else {
 				sendWish(Wish.NOTHING);
+				Delay.msDelay(500);
 			}
 			rv = getReadingValue();
 		}

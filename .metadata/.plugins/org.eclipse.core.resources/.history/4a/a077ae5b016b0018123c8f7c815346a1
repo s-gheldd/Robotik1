@@ -22,11 +22,11 @@ public class Chassis extends Effector {
 			motorA.backward();
 			motorD.backward();
 		} else if (command == Wish.TURNRIGHT) {
-			motorA.stop();
+			motorA.backward();
 			motorD.forward();
 		} else if (command == Wish.TURNLEFT) {
 			motorA.forward();
-			motorD.stop();
+			motorD.backward();
 		}
 	}
 }

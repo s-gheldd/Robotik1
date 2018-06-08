@@ -36,7 +36,6 @@ public class UltrasonicSensor extends SubSensor {
 			} else {
 				send(3);
 			}
-			Delay.msDelay(40);
 		}
 	}
 

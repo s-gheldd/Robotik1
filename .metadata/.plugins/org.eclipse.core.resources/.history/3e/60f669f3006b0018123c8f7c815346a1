@@ -26,7 +26,8 @@ public class UltrasonicSensor extends SubSensor {
 		
 		while(true) {
 			sampleProvider.fetchSample(sample, 0);
-			//System.out.println("ultrasonic: "+sample[0]);
+			Delay.msDelay(30);
+			System.out.println("ultrasonic: "+sample[0]);
 			if(sample[0] <= middle) {
 				send(0);
 			} else if(sample[0] <= outer) {
@@ -36,7 +37,6 @@ public class UltrasonicSensor extends SubSensor {
 			} else {
 				send(3);
 			}
-			Delay.msDelay(40);
 		}
 	}
 
