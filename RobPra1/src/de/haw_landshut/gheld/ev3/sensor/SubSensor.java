@@ -28,6 +28,8 @@ public abstract class SubSensor extends Thread {
 			return new BumperSensor(behaviors);
 		case "UltrasonicSensor":
 			return new UltrasonicSensor(behaviors);
+		case "LightSensor":
+			return new LightSensor(behaviors);
 		default:
 			new RuntimeException("unbekannter Sensortyp: " + typeName);
 			return null;

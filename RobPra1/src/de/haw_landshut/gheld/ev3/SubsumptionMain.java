@@ -20,13 +20,18 @@ public class SubsumptionMain {
 				//Behavior.make("Blink", arbitrator, priority++),
 				Behavior.make("FollowEdge", arbitrator, priority++),
 				Behavior.make("BumperHitBackAndTurnRight", arbitrator, priority++),
-				Behavior.make("Stop", arbitrator, priority++), Behavior.make("Killer", arbitrator, priority++) };
+				Behavior.make("Follower", arbitrator, priority++),
+				Behavior.make("Stop", arbitrator, priority++),
+				Behavior.make("Killer", arbitrator, priority++),
+				Behavior.make("Start", arbitrator, priority++)
+				};
 
 		// Konkrete Sensoren wie hier ButtonSensor erzeugen
 		SubSensor[] sensors = {
 				SubSensor.make("ButtonSensor", behaviors),
 				SubSensor.make("BumperSensor", behaviors),
-				SubSensor.make("UltrasonicSensor", behaviors) };
+				SubSensor.make("UltrasonicSensor", behaviors),
+				SubSensor.make("LightSensor", behaviors)};
 
 		// Starten aller Threads
 		for (Behavior behavior : behaviors)

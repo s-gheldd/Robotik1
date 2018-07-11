@@ -11,6 +11,12 @@ class Lamp extends Effector {
 		case LEDGREEN:
 			Button.LEDPattern(1);
 			break;
+		case LEDORANGE:
+			Button.LEDPattern(3);
+			break;
+		case LEDRED:
+			Button.LEDPattern(5);
+			break;
 		case LEDOFF:
 			Button.LEDPattern(0);
 			break;

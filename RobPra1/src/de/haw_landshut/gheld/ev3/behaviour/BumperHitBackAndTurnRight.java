@@ -16,16 +16,17 @@ public class BumperHitBackAndTurnRight extends Behavior {
 		int rv = getReadingValue();
 		while (true){
 			if (rv == 1) {
+				sendWish(Wish.LEDRED);
 				sendWish(Wish.BACKWARD);
 				Delay.msDelay(2500);
 				sendWish(Wish.STOP);
-				sendWish(Wish.TURNLEFT);
+				sendWish(Wish.ROTATECCW);
 				Delay.msDelay(2000);
 				sendWish(Wish.FORWARD);
 				Delay.msDelay(1000);
 			} else {
 				sendWish(Wish.NOTHING);
-				Delay.msDelay(500);
+				Delay.msDelay(200);
 			}
 			rv = getReadingValue();
 		}

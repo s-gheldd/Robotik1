@@ -27,6 +27,12 @@ public class Chassis extends Effector {
 		} else if (command == Wish.TURNLEFT) {
 			motorA.forward();
 			motorD.stop();
+		} else if (command == Wish.ROTATECW) {
+			motorA.backward();
+			motorD.forward();
+		} else if (command == Wish.ROTATECCW) {
+			motorA.forward();
+			motorD.backward();
 		}
 	}
 }

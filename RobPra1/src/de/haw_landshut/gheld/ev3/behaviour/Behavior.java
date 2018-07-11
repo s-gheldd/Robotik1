@@ -64,6 +64,10 @@ public abstract class Behavior extends Thread {
 			return new BumperHitBackAndTurnRight(arbitrator, priority);
 		case "FollowEdge":
 			return new FollowEdge(arbitrator, priority);
+		case "Follower":
+			return new Follower(arbitrator, priority);
+		case "Start":
+			return new Start(arbitrator, priority);
 		default:
 			throw new RuntimeException("Unbekanntes Verhalten");
 		}
